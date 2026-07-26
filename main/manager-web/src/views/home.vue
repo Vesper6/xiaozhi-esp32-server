@@ -7,14 +7,22 @@
         <!-- 首页内容 -->
         <div class="add-device">
           <div class="add-device-bg">
-            <div class="hellow-text" style="padding-top: 30px;">
-              {{ $t('home.greeting') }}
+            <div class="hero-ornaments" aria-hidden="true">
+              <div class="hero-glow hero-glow-a"></div>
+              <div class="hero-glow hero-glow-b"></div>
+              <svg class="hero-ecg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path class="hero-ecg-ghost"
+                  d="M0,60 L300,60 L322,26 L344,96 L364,60 L640,60 L662,42 L680,78 L698,60 L1000,60 L1022,18 L1046,104 L1066,60 L1440,60" />
+                <path class="hero-ecg-line"
+                  d="M0,60 L300,60 L322,26 L344,96 L364,60 L640,60 L662,42 L680,78 L698,60 L1000,60 L1022,18 L1046,104 L1066,60 L1440,60" />
+              </svg>
+            </div>
+            <div class="hero-eyebrow">
+              <lucide-icon name="cross" :size="13" :stroke-width="2.2" />
+              <span>{{ $t('home.greeting') }}</span>
             </div>
             <div class="hellow-text">
               {{ $t('home.wish') }}
-            </div>
-            <div class="hi-hint">
-              let's have a wonderful day!
             </div>
             <div class="add-device-options">
             <div class="search-container">
@@ -30,7 +38,8 @@
                     @focus="showSearchHistory"
                     @blur="hideSearchHistory"
                   >
-                    <i slot="suffix" class="el-icon-search search-icon" @click="handleSearch"></i>
+                    <lucide-icon slot="suffix" name="search" :size="15" :stroke-width="2" class="search-icon"
+                      @click.native="handleSearch" />
                   </el-input>
                   <!-- 搜索历史下拉框 -->
                   <div v-if="showHistory && searchHistory.length > 0" class="search-history-dropdown">
@@ -50,7 +59,10 @@
                   </div>
                 </div>
               </div>
-              <el-button icon="el-icon-plus" class="add-device-btn" @click="showAddDialog">{{ $t('home.addAgent') }}</el-button>
+              <el-button class="add-device-btn" @click="showAddDialog">
+                <lucide-icon name="plus" :size="15" :stroke-width="2.4" style="margin-right: 6px" />
+                {{ $t('home.addAgent') }}
+              </el-button>
             </div>
           </div>
         </div>
@@ -143,12 +155,13 @@ import AddWisdomBodyDialog from '@/components/AddWisdomBodyDialog.vue';
 import ChatHistoryDialog from '@/components/ChatHistoryDialog.vue';
 import DeviceItem from '@/components/DeviceItem.vue';
 import HeaderBar from '@/components/HeaderBar.vue';
+import LucideIcon from '@/components/LucideIcon.vue';
 import VersionFooter from '@/components/VersionFooter.vue';
 import featureManager from '@/utils/featureManager';
 
 export default {
   name: 'HomePage',
-  components: { DeviceItem, AddWisdomBodyDialog, HeaderBar, VersionFooter, ChatHistoryDialog },
+  components: { DeviceItem, AddWisdomBodyDialog, HeaderBar, VersionFooter, ChatHistoryDialog, LucideIcon },
   data() {
     return {
       addDeviceDialogVisible: false,
@@ -450,59 +463,149 @@ export default {
 }
 
 .add-device {
-  height: 195px;
-  border-radius: 15px;
+  height: 210px;
+  border-radius: 20px;
   position: relative;
-  background: linear-gradient(269.62deg,
-      #e0e6fd 0%,
-      #cce7ff 49.69%,
-      #d3d3fe 100%);
+  overflow: hidden;
+  background:
+    radial-gradient(110% 180% at 85% -20%, #103652 0%, transparent 60%),
+    radial-gradient(90% 160% at 8% 120%, #0c2a3d 0%, transparent 55%),
+    linear-gradient(120deg, #04070f 0%, #071022 100%);
+  box-shadow: 0 24px 60px -28px rgba(4, 10, 22, 0.65);
 }
 
 .add-device-bg {
+  position: relative;
   width: 100%;
   height: 100%;
   text-align: left;
-  background-image: url("@/assets/home/main-top-bg.png");
-  background-size: cover;
-  /* 确保背景图像覆盖整个元素 */
-  background-position: center;
-  /* 从顶部中心对齐 */
-  -webkit-background-size: cover;
-  /* 兼容老版本WebKit浏览器 */
-  -o-background-size: cover;
   box-sizing: border-box;
+  padding: 34px 75px 0;
 
-  /* 兼容老版本Opera浏览器 */
-  .hellow-text {
-    margin-left: 75px;
-    color: #3d4566;
-    font-size: 33px;
-    font-weight: 700;
-    letter-spacing: 0;
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #5eead4;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
   }
 
-  .hi-hint {
-    font-weight: 400;
-    font-size: 12px;
-    text-align: left;
-    color: #818cae;
-    margin-left: 75px;
-    margin-top: 5px;
+  .hellow-text {
+    position: relative;
+    z-index: 2;
+    margin-top: 12px;
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    background: linear-gradient(105deg, #f4fffd 35%, #7df3e1 80%, #4f7cff 110%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
+
+.hero-ornaments {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  .hero-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+  }
+
+  .hero-glow-a {
+    width: 380px;
+    height: 380px;
+    right: -80px;
+    top: -180px;
+    background: radial-gradient(circle, rgba(45, 212, 191, 0.28), transparent 65%);
+  }
+
+  .hero-glow-b {
+    width: 320px;
+    height: 320px;
+    left: 30%;
+    bottom: -220px;
+    background: radial-gradient(circle, rgba(79, 124, 255, 0.22), transparent 65%);
+  }
+
+  .hero-ecg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 90px;
+    opacity: 0.9;
+
+    path {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .hero-ecg-ghost {
+      stroke: rgba(45, 212, 191, 0.14);
+      stroke-width: 1.5;
+    }
+
+    .hero-ecg-line {
+      stroke: #2dd4bf;
+      stroke-width: 2;
+      stroke-dasharray: 220 2600;
+      stroke-dashoffset: 2820;
+      filter: drop-shadow(0 0 6px rgba(45, 212, 191, 0.85));
+      animation: home-ecg-run 6.5s linear infinite;
+    }
+  }
+}
+
+@keyframes home-ecg-run {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ornaments .hero-ecg .hero-ecg-line {
+    animation: none;
+  }
+}
+
 .add-device-options {
+  position: relative;
+  z-index: 2;
   display: flex;
-  margin-top: 16px;
-  margin-left: 75px;
+  margin-top: 22px;
   align-items: center;
 }
 
 .add-device-btn {
-  color: #fff;
+  display: inline-flex;
+  align-items: center;
   margin-left: 10px;
-  background: #3375fd;
-  border-radius: 20px;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 999px;
+  color: #03110e;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background: linear-gradient(115deg, #5eead4 0%, #2dd4bf 45%, #4f7cff 130%);
+  box-shadow: 0 14px 34px -12px rgba(45, 212, 191, 0.65);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+
+  &:hover,
+  &:focus {
+    color: #03110e;
+    background: linear-gradient(115deg, #5eead4 0%, #2dd4bf 45%, #4f7cff 130%);
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px -12px rgba(45, 212, 191, 0.8);
+  }
 }
 
 .search-container {
@@ -516,12 +619,23 @@ export default {
 
 .custom-search-input {
   &::v-deep .el-input__inner {
-    border-radius: 20px;
-    border: 1px solid transparent;
-    box-shadow: 0 2px 2px 0 #cfe1fb;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 214, 233, 0.22);
+    background: rgba(6, 16, 28, 0.6);
+    color: #f2fbf9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+
+    &::placeholder {
+      color: rgba(148, 214, 233, 0.4);
+    }
+
+    &:focus {
+      border-color: rgba(94, 234, 212, 0.6);
+      box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.12);
+    }
   }
   &::v-deep .el-input__suffix {
-    right: 10px;
+    right: 12px;
   }
   &::v-deep .el-input__suffix-inner {
     display: flex;
@@ -530,7 +644,11 @@ export default {
     cursor: pointer;
   }
   .search-icon {
-    font-size: 14px;
+    color: rgba(148, 214, 233, 0.6);
+
+    &:hover {
+      color: #5eead4;
+    }
   }
 }
 

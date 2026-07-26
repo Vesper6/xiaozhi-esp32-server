@@ -1,4 +1,16 @@
 export default {
+  // 认证页沉浸式界面文案
+  'auth.brand': '智能导诊',
+  'auth.eyebrow': '智慧医院 数字前台',
+  'auth.titleA': 'AI智能医疗导诊',
+  'auth.titleB': '让就医找对方向',
+  'auth.desc': '面向门诊大厅的语音智能导诊系统：听懂症状、推荐科室、指引流程，急危重症第一时间引导急诊，让每一位患者少走弯路。',
+  'auth.chipTriage': '智能分诊',
+  'auth.chipDepartment': '科室推荐',
+  'auth.chipInsurance': '医保咨询',
+  'auth.chipEducation': '健康宣教',
+  'auth.marqueeVoice': '语音交互',
+  'auth.marqueeKnowledge': '医院知识库',
   // 登录页面相关提示文本
   'login.requiredUsername': '用户名不能为空',
   'login.requiredPassword': '密码不能为空',
@@ -724,7 +736,7 @@ export default {
   // 首页文本
   'home.addAgent': '添加智能体',
   'home.greeting': '您好，欢迎使用智能导诊',
-  'home.wish': '让我们度过美好的一天！',
+  'home.wish': '今天也守护每一位来院的患者',
   'home.languageModel': '语言模型',
   'home.voiceModel': '音色模型',
   'home.configureRole': '配置角色',

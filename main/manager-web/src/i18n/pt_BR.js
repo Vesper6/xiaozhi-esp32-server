@@ -1,4 +1,16 @@
 export default {
+  // Textos da página de autenticação imersiva
+  'auth.brand': 'MedTriage',
+  'auth.eyebrow': 'Recepção digital do hospital inteligente',
+  'auth.titleA': 'Triagem Médica de IA',
+  'auth.titleB': 'Guiar cada visita',
+  'auth.desc': 'Um sistema de triagem por voz para o saguão ambulatorial: entende sintomas, recomenda departamentos, orienta o fluxo de atendimento e encaminha emergências imediatamente.',
+  'auth.chipTriage': 'Triagem inteligente',
+  'auth.chipDepartment': 'Escolha de setor',
+  'auth.chipInsurance': 'Ajuda com convênio',
+  'auth.chipEducation': 'Educação em saúde',
+  'auth.marqueeVoice': 'Interação por voz',
+  'auth.marqueeKnowledge': 'Conhecimento hospitalar',
   // Texto da página de login
   'login.requiredUsername': 'O nome de usuário não pode estar vazio',
   'login.requiredPassword': 'A senha não pode estar vazia',
@@ -724,7 +736,7 @@ export default {
   // Página inicial
   'home.addAgent': 'Adicionar Agente',
   'home.greeting': 'Bem-vindo à Triagem Médica de IA',
-  'home.wish': 'Vamos ter um dia maravilhoso!',
+  'home.wish': 'Guiando cada paciente ao atendimento certo hoje',
   'home.languageModel': 'LLM',
   'home.voiceModel': 'TTS',
   'home.configureRole': 'ConfRoles',

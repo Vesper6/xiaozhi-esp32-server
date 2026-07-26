@@ -1,4 +1,16 @@
 export default {
+  // Nội dung trang xác thực
+  'auth.brand': 'MedTriage',
+  'auth.eyebrow': 'Quầy số bệnh viện thông minh',
+  'auth.titleA': 'AI Phân loại Y tế',
+  'auth.titleB': 'Dẫn lối mỗi lần khám',
+  'auth.desc': 'Hệ thống phân luồng bằng giọng nói cho sảnh khám: hiểu triệu chứng, gợi ý khoa khám, hướng dẫn quy trình và chuyển ngay ca cấp cứu đến khoa cấp cứu.',
+  'auth.chipTriage': 'Phân loại thông minh',
+  'auth.chipDepartment': 'Gợi ý khoa',
+  'auth.chipInsurance': 'Tư vấn BHYT',
+  'auth.chipEducation': 'Giáo dục sức khỏe',
+  'auth.marqueeVoice': 'Tương tác giọng nói',
+  'auth.marqueeKnowledge': 'Tri thức bệnh viện',
   // Login page related prompt text
   'login.requiredUsername': 'Tên đăng nhập không được để trống',
   'login.requiredPassword': 'Mật khẩu không được để trống',
@@ -724,7 +736,7 @@ export default {
   // Home page text
   'home.addAgent': 'Thêm tác nhân',
   'home.greeting': 'Chào mừng đến với AI Phân loại Y tế',
-  'home.wish': 'Chúc bạn một ngày tuyệt vời!',
+  'home.wish': 'Hôm nay cùng dẫn lối cho từng bệnh nhân đến đúng nơi khám',
   'home.languageModel': 'LLM',
   'home.voiceModel': 'TTS',
   'home.configureRole': 'Vai trò',

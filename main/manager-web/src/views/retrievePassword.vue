@@ -1,117 +1,126 @@
 <template>
-  <div class="welcome" @keyup.enter="retrievePassword">
-    <el-container style="height: 100%;">
-      <!-- 保持相同的头部 -->
-      <el-header>
-        <div style="display: flex;align-items: center;margin-top: 15px;margin-left: 10px;gap: 10px;">
-          <img loading="lazy" alt="" src="@/assets/xiaozhi-logo.png" style="width: 45px;height: 45px;" />
-          <img loading="lazy" alt="" :src="xiaozhiAiIcon" style="height: 18px;" />
+  <div class="auth-stage" @keyup.enter="retrievePassword">
+    <auth-canvas />
+
+    <div class="auth-topbar">
+      <div class="brand">
+        <div class="brand-mark">
+          <lucide-icon name="cross" :size="20" :stroke-width="2.2" />
         </div>
-      </el-header>
-      <div class="login-person">
-        <img loading="lazy" alt="" src="@/assets/login/register-person.png" style="width: 100%;" />
+        <div>
+          <div class="brand-name">{{ $t("auth.brand") }}</div>
+          <div class="brand-sub">AI Medical Triage</div>
+        </div>
       </div>
-      <el-main style="position: relative;">
+    </div>
+
+    <div class="auth-layout">
+      <auth-hero />
+
+      <div class="auth-card">
         <form @submit.prevent="retrievePassword">
-          <div class="login-box">
-            <!-- 修改标题部分 -->
-            <div style="display: flex;align-items: center;gap: 20px;margin-bottom: 39px;padding: 0 30px;">
-              <img loading="lazy" alt="" src="@/assets/login/hi.png" style="width: 34px;height: 34px;" />
-              <div class="login-text">{{ $t('retrievePassword.title') }}</div>
-              <div class="login-welcome">
-                {{ $t('retrievePassword.subtitle') }}
-              </div>
+          <div class="card-head">
+            <div class="card-title">
+              <span class="title-icon">
+                <lucide-icon name="key-round" :size="18" :stroke-width="2" />
+              </span>
+              {{ $t('retrievePassword.title') }}
             </div>
+            <div class="card-sub">{{ $t('retrievePassword.subtitle') }}</div>
+          </div>
 
-            <div style="padding: 0 30px;">
-              <!-- 手机号输入 -->
-              <div class="input-box">
-                <div style="display: flex; align-items: center; width: 100%;">
-                  <el-select v-model="form.areaCode" style="width: 220px; margin-right: 10px;">
-                    <el-option v-for="item in mobileAreaList" :key="item.key" :label="`${item.name} (${item.key})`"
-                      :value="item.key" />
-                  </el-select>
-                  <el-input v-model="form.mobile" :placeholder="$t('retrievePassword.mobilePlaceholder')" />
-                </div>
-              </div>
+          <!-- 手机号输入 -->
+          <div class="field">
+            <lucide-icon name="smartphone" :size="18" :stroke-width="1.8" class="field-icon" />
+            <el-select v-model="form.areaCode" style="width: 150px">
+              <el-option v-for="item in mobileAreaList" :key="item.key" :label="`${item.name} (${item.key})`"
+                :value="item.key" />
+            </el-select>
+            <el-input v-model="form.mobile" :placeholder="$t('retrievePassword.mobilePlaceholder')" />
+          </div>
 
-              <div style="display: flex; align-items: center; margin-top: 20px; width: 100%; gap: 10px;">
-                <div class="input-box" style="width: calc(100% - 130px); margin-top: 0;">
-                  <img loading="lazy" alt="" class="input-icon" src="@/assets/login/shield.png" />
-                  <el-input v-model="form.captcha" :placeholder="$t('retrievePassword.captchaPlaceholder')" style="flex: 1;" />
-                </div>
-                <img loading="lazy" v-if="captchaUrl" :src="captchaUrl" alt="验证码"
-                  style="width: 150px; height: 40px; cursor: pointer;" @click="fetchCaptcha" />
-              </div>
-
-              <!-- 手机验证码 -->
-              <div style="display: flex; align-items: center; margin-top: 20px; width: 100%; gap: 10px;">
-                <div class="input-box" style="width: calc(100% - 130px); margin-top: 0;">
-                  <img loading="lazy" alt="" class="input-icon" src="@/assets/login/phone.png" />
-                  <el-input v-model="form.mobileCaptcha" :placeholder="$t('retrievePassword.mobileCaptchaPlaceholder')" style="flex: 1;" maxlength="6" />
-                </div>
-                <el-button type="primary" class="send-captcha-btn" :disabled="!canSendMobileCaptcha"
-                  @click="sendMobileCaptcha">
-                  <span>
-                    {{ countdown > 0 ? `${countdown}${$t('register.secondsLater')}` : $t('retrievePassword.getMobileCaptcha') }}
-                  </span>
-                </el-button>
-              </div>
-
-              <!-- 新密码 -->
-              <div class="input-box">
-                <img loading="lazy" alt="" class="input-icon" src="@/assets/login/password.png" />
-                <el-input v-model="form.newPassword" :placeholder="$t('retrievePassword.newPasswordPlaceholder')" type="password" show-password />
-              </div>
-
-              <!-- 确认新密码 -->
-              <div class="input-box">
-                <img loading="lazy" alt="" class="input-icon" src="@/assets/login/password.png" />
-                <el-input v-model="form.confirmPassword" :placeholder="$t('retrievePassword.confirmNewPasswordPlaceholder')" type="password" show-password />
-              </div>
-
-              <!-- 修改底部链接 -->
-              <div style="font-weight: 400;font-size: 14px;text-align: left;color: #5778ff;margin-top: 20px;">
-                <div style="cursor: pointer;" @click="goToLogin">{{ $t('retrievePassword.goToLogin') }}</div>
-              </div>
+          <div class="field-row">
+            <div class="field">
+              <lucide-icon name="shield-check" :size="18" :stroke-width="1.8" class="field-icon" />
+              <el-input v-model="form.captcha" :placeholder="$t('retrievePassword.captchaPlaceholder')" />
             </div>
+            <img loading="lazy" v-if="captchaUrl" :src="captchaUrl" alt="captcha" class="captcha-img"
+              @click="fetchCaptcha" />
+          </div>
 
-            <!-- 修改按钮文本 -->
-            <div class="login-btn" @click="retrievePassword">{{ $t('retrievePassword.resetButton') }}</div>
+          <!-- 手机验证码 -->
+          <div class="field-row">
+            <div class="field">
+              <lucide-icon name="smartphone" :size="18" :stroke-width="1.8" class="field-icon" />
+              <el-input v-model="form.mobileCaptcha" :placeholder="$t('retrievePassword.mobileCaptchaPlaceholder')"
+                maxlength="6" />
+            </div>
+            <el-button class="send-captcha-btn" :disabled="!canSendMobileCaptcha" @click="sendMobileCaptcha">
+              <span>
+                {{ countdown > 0 ? `${countdown}${$t('register.secondsLater')}` : $t('retrievePassword.getMobileCaptcha') }}
+              </span>
+            </el-button>
+          </div>
 
-            <!-- 保持相同的协议声明 -->
-            <div style="font-size: 14px;color: #979db1;">
-              {{ $t('retrievePassword.agreeTo') }}
-              <div style="display: inline-block;color: #5778FF;cursor: pointer;" @click="openPage('/user-agreement.html')">{{ $t('register.userAgreement') }}</div>
-              {{ $t('login.and') }}
-              <div style="display: inline-block;color: #5778FF;cursor: pointer;" @click="openPage('/privacy-policy.html')">{{ $t('register.privacyPolicy') }}</div>
+          <!-- 新密码 -->
+          <div class="field">
+            <lucide-icon name="lock" :size="18" :stroke-width="1.8" class="field-icon" />
+            <el-input v-model="form.newPassword" :placeholder="$t('retrievePassword.newPasswordPlaceholder')"
+              type="password" show-password />
+          </div>
+
+          <!-- 确认新密码 -->
+          <div class="field">
+            <lucide-icon name="lock" :size="18" :stroke-width="1.8" class="field-icon" />
+            <el-input v-model="form.confirmPassword" :placeholder="$t('retrievePassword.confirmNewPasswordPlaceholder')"
+              type="password" show-password />
+          </div>
+
+          <div class="auth-links">
+            <div class="link" @click="goToLogin">
+              <lucide-icon name="log-in" :size="14" :stroke-width="2" />
+              {{ $t('retrievePassword.goToLogin') }}
             </div>
           </div>
-        </form>
-      </el-main>
 
-      <!-- 保持相同的页脚 -->
-      <el-footer>
-        <version-footer />
-      </el-footer>
-    </el-container>
+          <div class="auth-submit" @click="retrievePassword">
+            {{ $t('retrievePassword.resetButton') }}
+            <lucide-icon name="arrow-right" :size="18" :stroke-width="2.2" class="submit-arrow" />
+          </div>
+
+          <div class="auth-meta">
+            {{ $t('retrievePassword.agreeTo') }}
+            <div class="link" @click="openPage('/user-agreement.html')">{{ $t('register.userAgreement') }}</div>
+            {{ $t('login.and') }}
+            <div class="link" @click="openPage('/privacy-policy.html')">{{ $t('register.privacyPolicy') }}</div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="auth-footer">
+      <version-footer />
+    </div>
   </div>
 </template>
 
 <script>
 import Api from '@/apis/api';
+import AuthCanvas from '@/components/AuthCanvas.vue';
+import AuthHero from '@/components/AuthHero.vue';
+import LucideIcon from '@/components/LucideIcon.vue';
 import VersionFooter from '@/components/VersionFooter.vue';
 import { getUUID, goToPage, showDanger, showSuccess, validateMobile, sm2Encrypt } from '@/utils';
 import { mapState } from 'vuex';
 import i18n from '@/i18n';
 
-// 导入语言切换功能
-import { changeLanguage } from '@/i18n';
-
 export default {
   name: 'retrieve',
   components: {
-    VersionFooter
+    VersionFooter,
+    AuthCanvas,
+    AuthHero,
+    LucideIcon
   },
   computed: {
     ...mapState({
@@ -122,26 +131,6 @@ export default {
     // 获取当前语言
     currentLanguage() {
       return i18n.locale || "zh_CN";
-    },
-    // 根据当前语言获取对应的xiaozhi-ai图标
-    xiaozhiAiIcon() {
-      const currentLang = this.currentLanguage;
-      switch (currentLang) {
-        case "zh_CN":
-          return require("@/assets/xiaozhi-ai.png");
-        case "zh_TW":
-          return require("@/assets/xiaozhi-ai_zh_TW.png");
-        case "en":
-          return require("@/assets/xiaozhi-ai_en.png");
-        case "de":
-          return require("@/assets/xiaozhi-ai_de.png");
-        case "vi":
-          return require("@/assets/xiaozhi-ai_vi.png");
-        case "pt_BR":
-          return require("@/assets/xiaozhi-ai_en.png");
-        default:
-          return require("@/assets/xiaozhi-ai.png");
-      }
     },
     canSendMobileCaptcha() {
       return this.countdown === 0 && validateMobile(this.form.mobile, this.form.areaCode);
@@ -304,21 +293,4 @@ export default {
 
 <style lang="scss" scoped>
 @import './auth.scss';
-
-.send-captcha-btn {
-  margin-right: -5px;
-  min-width: 100px;
-  height: 40px;
-  line-height: 40px;
-  border-radius: 4px;
-  font-size: 14px;
-  background: rgb(87, 120, 255);
-  border: none;
-  padding: 0;
-
-  &:disabled {
-    background: #c0c4cc;
-    cursor: not-allowed;
-  }
-}
 </style>

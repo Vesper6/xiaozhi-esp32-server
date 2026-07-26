@@ -1,4 +1,16 @@
 export default {
+  // 認證頁沉浸式介面文案
+  'auth.brand': '智慧導診',
+  'auth.eyebrow': '智慧醫院 數位前台',
+  'auth.titleA': 'AI智慧醫療導診',
+  'auth.titleB': '讓就醫找對方向',
+  'auth.desc': '面向門診大廳的語音智慧導診系統：聽懂症狀、推薦科別、指引流程，急危重症第一時間引導急診，讓每一位患者少走冤枉路。',
+  'auth.chipTriage': '智慧分診',
+  'auth.chipDepartment': '科別推薦',
+  'auth.chipInsurance': '健保諮詢',
+  'auth.chipEducation': '健康衛教',
+  'auth.marqueeVoice': '語音互動',
+  'auth.marqueeKnowledge': '醫院知識庫',
   // 登錄頁面相關提示文本
   'login.requiredUsername': '用戶名不能為空',
   'login.requiredPassword': '密碼不能為空',
@@ -724,7 +736,7 @@ export default {
   // 首頁文本
   'home.addAgent': '添加智能體',
   'home.greeting': '您好，歡迎使用智慧導診',
-  'home.wish': '讓我們度過美好的一天！',
+  'home.wish': '今天也守護每一位來院的患者',
   'home.languageModel': '語言模型',
   'home.voiceModel': '音色模型',
   'home.configureRole': '配置角色',

@@ -1,4 +1,16 @@
 export default {
+  // Texte der immersiven Anmeldeseite
+  'auth.brand': 'MedTriage',
+  'auth.eyebrow': 'Digitale Rezeption des Smart Hospital',
+  'auth.titleA': 'KI-Medizinische Triage',
+  'auth.titleB': 'Jeden Besuch leiten',
+  'auth.desc': 'Ein sprachgesteuertes Triage-System für die Ambulanzhalle: Es versteht Symptome, empfiehlt Fachabteilungen, erklärt den Ablauf und leitet Notfälle sofort in die Notaufnahme.',
+  'auth.chipTriage': 'Smarte Triage',
+  'auth.chipDepartment': 'Abteilungswahl',
+  'auth.chipInsurance': 'Versicherungshilfe',
+  'auth.chipEducation': 'Gesundheitsbildung',
+  'auth.marqueeVoice': 'Sprachinteraktion',
+  'auth.marqueeKnowledge': 'Krankenhauswissen',
   // Login page related prompt text
   'login.requiredUsername': 'Benutzername darf nicht leer sein',
   'login.requiredPassword': 'Passwort darf nicht leer sein',
@@ -724,7 +736,7 @@ export default {
   // Home page text
   'home.addAgent': 'Agent hinzufügen',
   'home.greeting': 'Willkommen bei der KI-Triage',
-  'home.wish': 'Lassen Sie uns einen wunderbaren Tag haben!',
+  'home.wish': 'Heute begleiten wir jeden Patienten zur richtigen Versorgung',
   'home.languageModel': 'LLM',
   'home.voiceModel': 'TTS',
   'home.configureRole': 'Rolle konf.',

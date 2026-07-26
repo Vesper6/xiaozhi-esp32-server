@@ -1,4 +1,16 @@
 export default {
+  // Immersive auth page copy
+  'auth.brand': 'MedTriage',
+  'auth.eyebrow': 'Smart Hospital Digital Front Desk',
+  'auth.titleA': 'AI Medical Triage',
+  'auth.titleB': 'Guide Every Visit',
+  'auth.desc': 'A voice-driven triage system for the outpatient hall: it understands symptoms, recommends departments, guides the visit flow, and escalates emergencies to the ER immediately.',
+  'auth.chipTriage': 'Smart Triage',
+  'auth.chipDepartment': 'Dept. Match',
+  'auth.chipInsurance': 'Insurance Help',
+  'auth.chipEducation': 'Health Education',
+  'auth.marqueeVoice': 'Voice Interaction',
+  'auth.marqueeKnowledge': 'Hospital Knowledge',
   // Login page related prompt text
   'login.requiredUsername': 'Username cannot be empty',
   'login.requiredPassword': 'Password cannot be empty',
@@ -724,7 +736,7 @@ export default {
   // Home page text
   'home.addAgent': 'Add Agent',
   'home.greeting': 'Welcome to AI Medical Triage',
-  'home.wish': "Let's have a wonderful day!",
+  'home.wish': "Guiding every patient to the right care today",
   'home.languageModel': 'LLM',
   'home.voiceModel': 'TTS',
   'home.configureRole': 'Config Role',
