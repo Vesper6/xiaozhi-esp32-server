@@ -298,7 +298,7 @@ export default {
 
   // Register page related
   'register.title': 'Konto erstellen',
-  'register.welcome': 'Willkommen bei XiaoZhi AI',
+  'register.welcome': 'Willkommen bei der KI-Medizinischen Triage',
   'register.usernamePlaceholder': 'Bitte Benutzernamen eingeben',
   'register.mobilePlaceholder': 'Bitte Handynummer eingeben',
   'register.captchaPlaceholder': 'Bitte Captcha eingeben',
@@ -584,7 +584,7 @@ export default {
   'button.close': 'Schließen',
 
   // System information
-  'system.name': 'XiaoZhi Service',
+  'system.name': 'KI-Medizinischer Triage-Dienst',
 
   // Voiceprint related
   'voiceprint.management': 'Stimmabdruckverwaltung',
@@ -723,7 +723,7 @@ export default {
 
   // Home page text
   'home.addAgent': 'Agent hinzufügen',
-  'home.greeting': 'Hallo XiaoZhi',
+  'home.greeting': 'Willkommen bei der KI-Triage',
   'home.wish': 'Lassen Sie uns einen wunderbaren Tag haben!',
   'home.languageModel': 'LLM',
   'home.voiceModel': 'TTS',

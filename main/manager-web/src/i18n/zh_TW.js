@@ -298,7 +298,7 @@ export default {
 
   // 註冊頁面相關
   'register.title': '建立帳號',
-  'register.welcome': '歡迎使用小智慧AI',
+  'register.welcome': '歡迎使用AI智慧醫療導診',
   'register.usernamePlaceholder': '請輸入用戶名',
   'register.mobilePlaceholder': '請輸入手機號碼',
   'register.captchaPlaceholder': '請輸入驗證碼',
@@ -584,7 +584,7 @@ export default {
   'button.close': '關閉',
 
   // 系统信息
-  'system.name': '小智服務',
+  'system.name': 'AI醫療導診服務',
 
   // 声纹相关
   'voiceprint.management': '聲紋管理',
@@ -723,7 +723,7 @@ export default {
 
   // 首頁文本
   'home.addAgent': '添加智能體',
-  'home.greeting': '你好小智',
+  'home.greeting': '您好，歡迎使用智慧導診',
   'home.wish': '讓我們度過美好的一天！',
   'home.languageModel': '語言模型',
   'home.voiceModel': '音色模型',

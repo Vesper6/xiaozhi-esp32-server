@@ -298,7 +298,7 @@ export default {
 
   // Register page related
   'register.title': 'Tạo tài khoản',
-  'register.welcome': 'Chào mừng đến với XiaoZhi AI',
+  'register.welcome': 'Chào mừng đến với AI Phân loại Y tế',
   'register.usernamePlaceholder': 'Vui lòng nhập tên đăng nhập',
   'register.mobilePlaceholder': 'Vui lòng nhập số điện thoại di động',
   'register.captchaPlaceholder': 'Vui lòng nhập mã xác minh',
@@ -584,7 +584,7 @@ export default {
   'button.close': 'Đóng',
 
   // System information
-  'system.name': 'Dịch vụ XiaoZhi',
+  'system.name': 'Dịch vụ AI Phân loại Y tế',
 
   // Voiceprint related
   'voiceprint.management': 'Quản lý dấu giọng nói',
@@ -723,7 +723,7 @@ export default {
 
   // Home page text
   'home.addAgent': 'Thêm tác nhân',
-  'home.greeting': 'Xin chào XiaoZhi',
+  'home.greeting': 'Chào mừng đến với AI Phân loại Y tế',
   'home.wish': 'Chúc bạn một ngày tuyệt vời!',
   'home.languageModel': 'LLM',
   'home.voiceModel': 'TTS',

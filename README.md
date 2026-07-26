@@ -1,6 +1,12 @@
 [![Banners](docs/images/banner1.png)](https://github.com/xinnan-tech/xiaozhi-esp32-server)
 
-<h1 align="center">小智后端服务xiaozhi-esp32-server</h1>
+<h1 align="center">AI智能医疗导诊后端服务（基于xiaozhi-esp32-server）</h1>
+
+<p align="center">
+本项目在小智后端服务基础上完成<b>AI智能医疗导诊</b>场景改造：智能分诊、科室推荐、医院信息问答、健康宣教<br/>
+提示词、技能插件（SKILL）、MCP、知识库、交互钩子（Hooks）与管理界面均已医疗化，详见<a href="./docs/medical-triage-guide.md">医疗导诊改造指南</a><br/>
+设备端固件参考<a href="https://github.com/Vesper6/xiaozhi-esp32">Vesper6/xiaozhi-esp32</a><br/>
+</p>
 
 <p align="center">
 本项目基于人机共生智能理论和技术研发智能终端软硬件体系<br/>为开源智能硬件项目

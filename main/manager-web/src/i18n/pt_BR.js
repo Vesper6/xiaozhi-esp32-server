@@ -298,7 +298,7 @@ export default {
 
   // Página de registro
   'register.title': 'Criar Conta',
-  'register.welcome': 'Bem-vindo ao XiaoZhi AI',
+  'register.welcome': 'Bem-vindo à Triagem Médica de IA',
   'register.usernamePlaceholder': 'Por favor, insira o nome de usuário',
   'register.mobilePlaceholder': 'Por favor, insira o número de celular',
   'register.captchaPlaceholder': 'Por favor, insira o captcha',
@@ -584,7 +584,7 @@ export default {
   'button.close': 'Fechar',
 
   // Informações do sistema
-  'system.name': 'Serviço XiaoZhi',
+  'system.name': 'Serviço de Triagem Médica de IA',
 
   // Impressão vocal
   'voiceprint.management': 'Gerenciamento de Impressão Vocal',
@@ -723,7 +723,7 @@ export default {
 
   // Página inicial
   'home.addAgent': 'Adicionar Agente',
-  'home.greeting': 'Olá XiaoZhi',
+  'home.greeting': 'Bem-vindo à Triagem Médica de IA',
   'home.wish': 'Vamos ter um dia maravilhoso!',
   'home.languageModel': 'LLM',
   'home.voiceModel': 'TTS',
